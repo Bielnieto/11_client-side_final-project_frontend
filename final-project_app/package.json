@@ -10,10 +10,10 @@
     "preview": "vite preview",
     "test": "vitest",
     "format": "prettier --write ."
-},
+  },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
-},
+  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
