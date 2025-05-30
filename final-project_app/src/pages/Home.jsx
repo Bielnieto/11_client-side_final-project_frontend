@@ -39,7 +39,7 @@ function Home() {
 
   return (
     <div>
-      <h1>Books</h1>
+      <h1>My Book Collection</h1>
       {!showForm ? (
         <button 
           onClick={handleAdd} 
