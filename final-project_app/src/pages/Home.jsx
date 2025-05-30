@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BookList from '../components/BookList/BookList';
 import BookForm from '../components/BookForm/BookForm';
 import { useBooks } from '../hooks/useBooks';
+import { UI_MESSAGES } from '../utils/constants';
 
 function Home() {
   const { books, loading, error, addBook, updateBook, deleteBook } = useBooks();
@@ -14,7 +15,7 @@ function Home() {
   };
 
   const handleDelete = (book) => {
-    if (window.confirm('¿Seguro que quieres borrar este libro?')) {
+    if (window.confirm(UI_MESSAGES.CONFIRM_DELETE)) {
       deleteBook(book.id);
     }
   };
@@ -38,8 +39,26 @@ function Home() {
 
   return (
     <div>
-      <h1>Libros</h1>
-      <button onClick={handleAdd} style={{ marginBottom: 20 }}>Añadir libro</button>
+      <h1>Books</h1>
+      {!showForm ? (
+        <button 
+          onClick={handleAdd} 
+          style={{ marginBottom: 20, background: '#10b981', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1.3rem', fontSize: '1rem', fontWeight: 500, cursor: 'pointer', transition: 'background 0.2s' }}
+          onMouseOver={e => e.currentTarget.style.background = '#059669'}
+          onMouseOut={e => e.currentTarget.style.background = '#10b981'}
+        >
+          Add book
+        </button>
+      ) : (
+        <button
+          onClick={handleCancel}
+          style={{ marginBottom: 20, background: '#f87171', color: '#fff', border: 'none', borderRadius: 6, padding: '0.5rem 1.3rem', fontSize: '1rem', fontWeight: 500, cursor: 'pointer', transition: 'background 0.2s' }}
+          onMouseOver={e => e.currentTarget.style.background = '#dc2626'}
+          onMouseOut={e => e.currentTarget.style.background = '#f87171'}
+        >
+          Cancel
+        </button>
+      )}
       {showForm && (
         <BookForm book={editingBook} onSave={handleSave} onCancel={handleCancel} />
       )}

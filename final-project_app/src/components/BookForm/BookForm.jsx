@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styles from './BookForm.module.css';
 import { STATUS_LABELS } from '../../utils/constants';
 
-function BookForm({ book, onSave, onCancel }) {
+function BookForm({ book, onSave }) {
   const [form, setForm] = useState({
     title: '',
     author: '',
     year: '',
-    status: 'pendiente',
+    status: 'pending',
   });
 
   useEffect(() => {
@@ -27,19 +27,19 @@ function BookForm({ book, onSave, onCancel }) {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <label>
-        Título
+        Title
         <input name="title" value={form.title} onChange={handleChange} required />
       </label>
       <label>
-        Autor
+        Author
         <input name="author" value={form.author} onChange={handleChange} required />
       </label>
       <label>
-        Año
+        Year
         <input name="year" value={form.year} onChange={handleChange} required type="number" min="0" />
       </label>
       <label>
-        Estado
+        Status
         <select name="status" value={form.status} onChange={handleChange}>
           {Object.keys(STATUS_LABELS).map((key) => (
             <option key={key} value={key}>{STATUS_LABELS[key]}</option>
@@ -47,8 +47,7 @@ function BookForm({ book, onSave, onCancel }) {
         </select>
       </label>
       <div className={styles.actions}>
-        <button type="submit">Guardar</button>
-        <button type="button" onClick={onCancel}>Cancelar</button>
+        <button type="submit">Save Book</button>
       </div>
     </form>
   );
