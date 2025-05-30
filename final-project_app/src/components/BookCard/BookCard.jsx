@@ -17,7 +17,7 @@ function BookCard({ book, onEdit, onDelete }) {
           className={styles.status}
           style={{ backgroundColor: STATUS_COLORS[book.status] }}
         >
-          {book.status}
+          {STATUS_LABELS[book.status]}
         </span>
       </div>
       <div className={styles.actions}>

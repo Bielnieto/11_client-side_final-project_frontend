@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  overflow-x: auto;
+}
+.info {
+  width: 100%;
+  text-align: center;
+  color: #888;
+  margin: 2rem 0;
+}
+.error {
+  width: 100%;
+  text-align: center;
+  color: #b91c1c;
+  margin: 2rem 0;
+}

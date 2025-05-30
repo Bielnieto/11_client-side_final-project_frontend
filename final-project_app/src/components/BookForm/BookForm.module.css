@@ -28,7 +28,7 @@ input, select {
   justify-content: flex-end;
 }
 button[type="submit"] {
-  background: #2563eb;
+  background: #10b981; /* green for create/update */
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -38,12 +38,12 @@ button[type="submit"] {
   transition: background 0.2s;
 }
 button[type="submit"]:hover {
-  background: #1d4ed8;
+  background: #059669;
 }
 button[type="button"] {
-  background: #f3f4f6;
-  color: #222;
-  border: 1px solid #e5e7eb;
+  background: #f87171; /* red for cancel */
+  color: #fff;
+  border: none;
   border-radius: 6px;
   padding: 0.5rem 1.3rem;
   font-size: 1rem;
@@ -51,5 +51,5 @@ button[type="button"] {
   transition: background 0.2s;
 }
 button[type="button"]:hover {
-  background: #e0e7ef;
+  background: #dc2626;
 }
