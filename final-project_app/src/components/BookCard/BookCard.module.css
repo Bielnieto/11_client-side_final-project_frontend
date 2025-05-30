@@ -1,0 +1,77 @@
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+  margin: 1rem 0;
+  min-width: 260px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.year {
+  background: #f3f4f6;
+  color: #888;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  padding: 0.1rem 0.7rem;
+  margin-left: 0.5rem;
+}
+.author {
+  color: #444;
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+}
+.statusRow {
+  margin-bottom: 0.5rem;
+}
+.status {
+  display: inline-block;
+  color: #222;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: #f59e0b;
+  border-radius: 6px;
+  padding: 0.15rem 0.7rem;
+  text-transform: lowercase;
+}
+.actions {
+  display: flex;
+  gap: 0.7rem;
+}
+.editBtn {
+  background: #f3f4f6;
+  color: #222;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.3rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.editBtn:hover {
+  background: #e0e7ef;
+}
+.deleteBtn {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  padding: 0.3rem 1.1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.deleteBtn:hover {
+  background: #fecaca;
+}
