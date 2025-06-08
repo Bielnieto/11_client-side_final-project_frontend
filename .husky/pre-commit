@@ -1,1 +1,4 @@
-npx husky add .husky/pre-commit "npx lint-staged"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
