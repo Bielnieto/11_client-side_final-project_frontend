@@ -1,4 +1,3 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-npx vitest --config ./vite.config.ts --mode production
+npx vitest --run
