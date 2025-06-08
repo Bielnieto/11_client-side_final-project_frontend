@@ -56,18 +56,19 @@ export function useBooks() {
         return res.json();
       })
       .then((updatedBook) => {
-        setBooks((prev) => prev.map((b) => (b.id === updatedBook.id ? updatedBook : b)));
+        setBooks((prev) =>
+          prev.map((b) => (b.id === updatedBook.id ? updatedBook : b)),
+        );
         return updatedBook;
       });
   };
 
   // Delete book
   const deleteBook = (id) => {
-    return fetch(`${API_URL}/${id}`, { method: 'DELETE' })
-      .then((res) => {
-        if (!res.ok) throw new Error('Error al borrar libro');
-        setBooks((prev) => prev.filter((b) => b.id !== id));
-      });
+    return fetch(`${API_URL}/${id}`, { method: 'DELETE' }).then((res) => {
+      if (!res.ok) throw new Error('Error al borrar libro');
+      setBooks((prev) => prev.filter((b) => b.id !== id));
+    });
   };
 
   return { books, loading, error, addBook, updateBook, deleteBook, fetchBooks };

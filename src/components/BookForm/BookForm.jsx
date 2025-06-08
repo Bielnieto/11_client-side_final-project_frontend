@@ -28,21 +28,40 @@ function BookForm({ book, onSave }) {
     <form className={styles.form} onSubmit={handleSubmit}>
       <label>
         Title
-        <input name="title" value={form.title} onChange={handleChange} required />
+        <input
+          name="title"
+          value={form.title}
+          onChange={handleChange}
+          required
+        />
       </label>
       <label>
         Author
-        <input name="author" value={form.author} onChange={handleChange} required />
+        <input
+          name="author"
+          value={form.author}
+          onChange={handleChange}
+          required
+        />
       </label>
       <label>
         Year
-        <input name="year" value={form.year} onChange={handleChange} required type="number" min="0" />
+        <input
+          name="year"
+          value={form.year}
+          onChange={handleChange}
+          required
+          type="number"
+          min="0"
+        />
       </label>
       <label>
         Status
         <select name="status" value={form.status} onChange={handleChange}>
           {Object.keys(STATUS_LABELS).map((key) => (
-            <option key={key} value={key}>{STATUS_LABELS[key]}</option>
+            <option key={key} value={key}>
+              {STATUS_LABELS[key]}
+            </option>
           ))}
         </select>
       </label>
