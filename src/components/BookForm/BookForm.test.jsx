@@ -6,7 +6,7 @@ import BookForm from './BookForm';
 afterEach(() => cleanup());
 
 describe('BookForm', () => {
-  it('renderiza los campos del formulario', () => {
+  it('renders the form fields', () => {
     render(<BookForm onSave={vi.fn()} onCancel={vi.fn()} />);
     expect(screen.getByLabelText('Title')).toBeTruthy();
     expect(screen.getByLabelText('Author')).toBeTruthy();
@@ -14,14 +14,14 @@ describe('BookForm', () => {
     expect(screen.getByLabelText('Status')).toBeTruthy();
   });
 
-  it('llama a onSave con los datos del formulario al enviar', () => {
+  it('calls onSave with form data on submit', () => {
     const onSave = vi.fn();
     render(<BookForm onSave={onSave} onCancel={vi.fn()} />);
     fireEvent.change(screen.getByLabelText('Title'), {
-      target: { value: 'Nuevo libro' },
+      target: { value: 'New Book' },
     });
     fireEvent.change(screen.getByLabelText('Author'), {
-      target: { value: 'Autor Prueba' },
+      target: { value: 'Test Author' },
     });
     fireEvent.change(screen.getByLabelText('Year'), {
       target: { value: '2024' },
@@ -31,35 +31,35 @@ describe('BookForm', () => {
     });
     fireEvent.click(screen.getByText('Save Book'));
     expect(onSave).toHaveBeenCalledWith({
-      title: 'Nuevo libro',
-      author: 'Autor Prueba',
+      title: 'New Book',
+      author: 'Test Author',
       year: '2024',
       status: 'pending',
     });
   });
 
-  it('llama a onCancel al hacer click en Cancelar', () => {
+  it('calls onCancel when clicking Cancel', () => {
     const onCancel = vi.fn();
     render(<BookForm onSave={vi.fn()} onCancel={onCancel} />);
   });
 
-  it('muestra los valores del libro si se pasa como prop', () => {
+  it('shows book values if passed as prop', () => {
     const book = {
-      title: 'Libro Editado',
-      author: 'Autor Editado',
+      title: 'Edited Book',
+      author: 'Edited Author',
       year: '2020',
-      status: 'pendiente',
+      status: 'pending',
     };
     render(<BookForm book={book} onSave={vi.fn()} onCancel={vi.fn()} />);
-    expect(screen.getByDisplayValue('Libro Editado')).toBeTruthy();
-    expect(screen.getByDisplayValue('Autor Editado')).toBeTruthy();
+    expect(screen.getByDisplayValue('Edited Book')).toBeTruthy();
+    expect(screen.getByDisplayValue('Edited Author')).toBeTruthy();
     expect(screen.getByDisplayValue('2020')).toBeTruthy();
   });
 
-  it('el formulario es controlado y actualiza el estado al escribir', () => {
+  it('is a controlled form and updates state on typing', () => {
     render(<BookForm onSave={vi.fn()} onCancel={vi.fn()} />);
     const input = screen.getByLabelText('Title');
-    fireEvent.change(input, { target: { value: 'Probando' } });
-    expect(screen.getByDisplayValue('Probando')).toBeTruthy();
+    fireEvent.change(input, { target: { value: 'Testing' } });
+    expect(screen.getByDisplayValue('Testing')).toBeTruthy();
   });
 });

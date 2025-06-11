@@ -9,15 +9,15 @@ describe('BookList', () => {
   const books = [
     {
       id: 1,
-      title: 'Libro 1',
-      author: 'Autor 1',
+      title: 'Book 1',
+      author: 'Author 1',
       year: 2020,
       status: 'pending',
     },
-    { id: 2, title: 'Libro 2', author: 'Autor 2', year: 2021, status: 'read' },
+    { id: 2, title: 'Book 2', author: 'Author 2', year: 2021, status: 'read' },
   ];
 
-  it('muestra mensaje de carga si loading=true', () => {
+  it('shows loading message if loading=true', () => {
     render(
       <BookList
         books={[]}
@@ -30,20 +30,20 @@ describe('BookList', () => {
     expect(screen.getByText('Loading...')).toBeTruthy();
   });
 
-  it('muestra mensaje de error si error está presente', () => {
+  it('shows error message if error is present', () => {
     render(
       <BookList
         books={[]}
         loading={false}
-        error={'Error de red'}
+        error={'Network error'}
         onEdit={vi.fn()}
         onDelete={vi.fn()}
       />,
     );
-    expect(screen.getByText('Error: Error de red')).toBeTruthy();
+    expect(screen.getByText('Error: Network error')).toBeTruthy();
   });
 
-  it('muestra mensaje si no hay libros', () => {
+  it('shows message if there are no books', () => {
     render(
       <BookList
         books={[]}
@@ -58,7 +58,7 @@ describe('BookList', () => {
     ).toBeTruthy();
   });
 
-  it('renderiza una tarjeta BookCard por cada libro', () => {
+  it('renders a BookCard card for each book', () => {
     render(
       <BookList
         books={books}
@@ -68,11 +68,11 @@ describe('BookList', () => {
         onDelete={vi.fn()}
       />,
     );
-    expect(screen.getByText('Libro 1')).toBeTruthy();
-    expect(screen.getByText('Libro 2')).toBeTruthy();
+    expect(screen.getByText('Book 1')).toBeTruthy();
+    expect(screen.getByText('Book 2')).toBeTruthy();
   });
 
-  it('llama a onEdit y onDelete del libro correspondiente', () => {
+  it('calls onEdit and onDelete for the corresponding book', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(

@@ -12,7 +12,7 @@ export function useBooks() {
     setLoading(true);
     fetch(API_URL)
       .then((res) => {
-        if (!res.ok) throw new Error('Error al cargar libros');
+        if (!res.ok) throw new Error('Error loading books');
         return res.json();
       })
       .then((data) => {
@@ -35,7 +35,7 @@ export function useBooks() {
       body: JSON.stringify(book),
     })
       .then((res) => {
-        if (!res.ok) throw new Error('Error al crear libro');
+        if (!res.ok) throw new Error('Error creating books');
         return res.json();
       })
       .then((newBook) => {
@@ -52,7 +52,7 @@ export function useBooks() {
       body: JSON.stringify(book),
     })
       .then((res) => {
-        if (!res.ok) throw new Error('Error al actualizar libro');
+        if (!res.ok) throw new Error('Error updating books');
         return res.json();
       })
       .then((updatedBook) => {
@@ -66,7 +66,7 @@ export function useBooks() {
   // Delete book
   const deleteBook = (id) => {
     return fetch(`${API_URL}/${id}`, { method: 'DELETE' }).then((res) => {
-      if (!res.ok) throw new Error('Error al borrar libro');
+      if (!res.ok) throw new Error('Error deleting books');
       setBooks((prev) => prev.filter((b) => b.id !== id));
     });
   };

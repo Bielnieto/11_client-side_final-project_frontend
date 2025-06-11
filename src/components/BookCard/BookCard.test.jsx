@@ -14,28 +14,28 @@ describe('BookCard', () => {
     status: BOOK_STATUS.READ,
   };
 
-  it('muestra el título del libro', () => {
+  it('displays the book title', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(<BookCard book={book} onEdit={onEdit} onDelete={onDelete} />);
     expect(screen.getByText('Clean Code')).toBeTruthy();
   });
 
-  it('muestra el autor del libro', () => {
+  it('displays the book author', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(<BookCard book={book} onEdit={onEdit} onDelete={onDelete} />);
     expect(screen.getByText('Robert C. Martin')).toBeTruthy();
   });
 
-  it('muestra el año del libro', () => {
+  it('displays the book year', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(<BookCard book={book} onEdit={onEdit} onDelete={onDelete} />);
     expect(screen.getByText('2008')).toBeTruthy();
   });
 
-  it('llama a onEdit con el libro al hacer click en Edit', () => {
+  it('calls onEdit with the book when Edit is clicked', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(<BookCard book={book} onEdit={onEdit} onDelete={onDelete} />);
@@ -43,7 +43,7 @@ describe('BookCard', () => {
     expect(onEdit).toHaveBeenCalledWith(book);
   });
 
-  it('llama a onDelete con el libro al hacer click en Delete', () => {
+  it('calls onDelete with the book when Delete is clicked', () => {
     const onEdit = vi.fn();
     const onDelete = vi.fn();
     render(<BookCard book={book} onEdit={onEdit} onDelete={onDelete} />);
